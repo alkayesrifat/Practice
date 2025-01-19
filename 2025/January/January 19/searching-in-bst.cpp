@@ -18,66 +18,92 @@ public:
 Node *input_binary_tree()
 {
 
-    int root_number;
-    cin >> root_number;
+    int first_number ; cin >> first_number;
 
-    queue<Node *> q;
+  
 
-    Node *root;
+    Node *root ;
 
-    if (root_number == -1)
-        root = NULL;
-    else
-        root = new Node(root_number);
+    if(first_number == -1) root = NULL;
+    else root = new Node(first_number);
 
-    if (root == NULL)
-        return root;
-    else
-        q.push(root);
+  
 
+    queue<Node*>q;
+
+    if(root != NULL) q.push(root);
+    else return root;
+
+    
     while (q.empty() == false)
     {
+        
         Node *front_node = q.front();
         q.pop();
 
-        int left_number, right_number;
-        cin >> left_number >> right_number;
+        
+       int left_value , right_value; 
 
-        Node *leftnode;
-        Node *rightnode;
+       cin >> left_value >> right_value;
 
-        if (left_number == -1)
-            leftnode = NULL;
-        else
-            leftnode = new Node(left_number);
+       Node *left_node , *right_node;
 
-        if (right_number == -1)
-            rightnode = NULL;
-        else
-            leftnode = new Node(right_number);
+       if(left_value == -1) left_node = NULL;
+       else left_node = new Node(left_value);
 
-        front_node->left = leftnode;
-        front_node->right = rightnode;
+       if(right_value == -1) right_node = NULL;
+       else right_node = new Node(right_value);
 
-        if (front_node->left != NULL)
-            q.push(front_node->left);
-        if (front_node->right != NULL)
-            q.push(front_node->right);
+
+
+       front_node->left = left_node;
+       front_node->right = right_node;
+
+
+
+       
+
+       if(front_node->left != NULL) q.push(front_node->left);
+       if(front_node->right != NULL) q.push(front_node->right);
+
+
+
+
+
     }
+    
+
     return root;
 }
 
 
 bool search_bst(Node *root,int num){
 
-    
+    if (root == NULL)
+    {
+        return false;
+    }
+    if (root->val == num)
+    {
+        return true;
+    }
+
+    if(root->val > num){
+        
+        return search_bst(root->left , num);
+    }
+
+    else
+    {
+        return search_bst(root->right,num);
+    }
 
 }
 
 
 int main()
 {
-
+    // cout <<"lsjf;lasdjf";
     Node *root = input_binary_tree();
 
     int num ; cin >> num;
@@ -88,7 +114,7 @@ int main()
     }
     else
     {
-        cout << "NO";
+         cout << "NO";
     }
     
     
