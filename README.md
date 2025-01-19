@@ -6,7 +6,7 @@ Welcome to my **Coding Repository**! This is my personal space to store and trac
 
 ## Repository Structure
 
-### 📂 [2025](https://github.com/alkayesrifat/Coding/tree/master/2025/January)
+### 📂 [2025](https://github.com/alkayesrifat/Coding/tree/master/2025)
 
 
 ### 📂 [2024](https://github.com/alkayesrifat/Coding/tree/master/2024)
