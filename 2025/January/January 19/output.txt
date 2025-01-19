@@ -1,1 +1,1 @@
-NO
+Is the value present or/not : NO
