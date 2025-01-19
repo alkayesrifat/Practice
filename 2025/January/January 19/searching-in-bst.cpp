@@ -103,7 +103,7 @@ bool search_bst(Node *root,int num){
 
 int main()
 {
-    // cout <<"lsjf;lasdjf";
+    
     Node *root = input_binary_tree();
 
     int num ; cin >> num;
