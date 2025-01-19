@@ -103,7 +103,7 @@ bool search_bst(Node *root,int num){
 
 int main()
 {
-    
+    cout << "Is the value present or/not : ";
     Node *root = input_binary_tree();
 
     int num ; cin >> num;
