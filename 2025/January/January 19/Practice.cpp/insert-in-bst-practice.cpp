@@ -94,26 +94,28 @@ void insert(Node *&root, int num)
     {
         root = new Node(num);
     }
-    if (root->val > num)
+    if (num > root->val)
     {
-        if (root->left == NULL)
-        {
-            root->left = new Node(num);
-        }
-        else
-        {
-            insert(root->left, num);
-        }
-    }
-    else
-    {
+        // right
         if (root->right == NULL)
         {
             root->right = new Node(num);
         }
         else
         {
-            insert(root->right, num);
+             insert(root->right, num);
+        }
+    }
+    else
+    {
+        // left
+        if (root->left == NULL)
+        {
+            root->left = new Node(num);
+        }
+        else
+        {
+             insert(root->left, num);
         }
     }
 }

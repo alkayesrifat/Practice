@@ -69,32 +69,37 @@ Node *input_binary_tree()
     return root;
 }
 
-bool search(Node *root,int num){
+bool search(Node *root, int num)
+{
 
-    if(root == NULL)return false;
+    if (root == NULL)
+    {
+        return false;
+    }
+
     if (root->val == num)
     {
         return true;
     }
+
     if (root->val > num)
     {
-
-        return search(root->left,num);
+        return search(root->left, num);
     }
     else
     {
-        return search(root->right,num);
+        return search(root->right, num);
     }
-
 }
 
 int main()
 {
 
     Node *root = input_binary_tree();
-    int num ; cin >> num;
+    int num;
+    cin >> num;
 
-    if (search(root,num))
+    if (search(root, num))
     {
         cout << "Present";
     }
@@ -102,8 +107,6 @@ int main()
     {
         cout << "Not Present";
     }
-    
 
-    
     return 0;
 }
