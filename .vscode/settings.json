@@ -3,6 +3,9 @@
         "iostream": "cpp",
         "ostream": "cpp",
         "tuple": "cpp",
-        "new": "cpp"
+        "new": "cpp",
+        "iosfwd": "cpp",
+        "*.tcc": "cpp",
+        "vector": "cpp"
     }
 }
