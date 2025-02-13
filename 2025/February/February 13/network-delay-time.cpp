@@ -4,7 +4,7 @@ class Solution {
     public:
         vector<vector<pair<int, int>>> adj;
         vector<int>dis;
-        void dijkstraa(int src){
+        void dijkstraa(int src){ 
             
             priority_queue<pair<int, int>,vector<pair<int, int>>,greater<pair<int, int>>> pq;
             pq.push({0,src});
