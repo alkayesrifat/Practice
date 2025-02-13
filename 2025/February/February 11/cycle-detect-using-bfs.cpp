@@ -3,31 +3,28 @@ using namespace std;
 vector<int> adj_list[100];
 bool visited[100];
 bool cycle;
-int parenta[100];
+int parent[100];
 void bfs(int src)
 {
-
     queue<int> q;
     q.push(src);
     visited[src] = true;
-
     while (q.empty() == false)
     {
-        int parent = q.front();
+        int p = q.front();
         q.pop();
-
-        for (auto x : adj_list[parent])
+        for (int x : adj_list[p])
         {
-            if (visited[x]== true && parenta[parent] != x)
+            if (visited[x] == true && parent[p] != x)
             {
                 cycle = true;
             }
-
+            
             if (visited[x] == false)
             {
                 q.push(x);
                 visited[x] = true;
-                parenta[x] = parent;
+                parent[x] = p;
             }
         }
     }
@@ -36,14 +33,16 @@ void bfs(int src)
 int main()
 {
 
+    memset(visited, false, sizeof(visited));
+    memset(parent,-1,sizeof(parent));
+
     int n, e;
     cin >> n >> e;
-    memset(visited, false, sizeof(visited));
-    memset(parenta,-1,sizeof(parenta));
     while (e--)
     {
         int a, b;
         cin >> a >> b;
+      
         adj_list[a].push_back(b);
         adj_list[b].push_back(a);
     }
@@ -54,14 +53,15 @@ int main()
         {
             bfs(i);
         }
+        
     }
-    if (cycle )
+    if (cycle)
     {
-        cout << "cycle dicatedted";
+        cout << "cycle detected";
     }
     else
     {
-        cout << " NO cycle , i love you , etai bastob , hahahahha, ";
+        cout << "NO cycle";
     }
 
     return 0;
