@@ -1,0 +1,7 @@
+
+    lider[0] = 1;
+    lider[1] = -1;
+    lider[2]  = 1;
+    lider[3] = 1;
+    lider[4] = 5;
+    lider[5] = 3;
