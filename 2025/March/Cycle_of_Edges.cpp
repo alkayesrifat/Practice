@@ -42,8 +42,8 @@ int main()
 
     int n, e;
     cin >> n >>e;
-    bool fl = false;  
-
+   
+    int countt = 0;
     while (e--)
     {
         int a, b;
@@ -52,20 +52,15 @@ int main()
         int lb = findthemastermind(b);
         if (la== lb)
         {
-            fl = true;
+            countt ++;
+           
         }
         
         else union_kor_sala_go_re(a,b);
     }
+    cout << countt;
 
-    if (fl)
-    {
-        cout << "Black spot founded"<< endl;
-    }
-    else
-    {
-        cout << "Pure white " << endl;
-    }
+
     
     
 
