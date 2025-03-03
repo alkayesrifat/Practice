@@ -50,7 +50,8 @@ int fib(int n)
 
 int main()
 {
+    int n ;cin >> n ;
 
-    cout << fib(6);
+    cout << fib(n);
     return 0;
 }
