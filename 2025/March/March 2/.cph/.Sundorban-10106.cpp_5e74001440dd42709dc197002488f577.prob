@@ -1,0 +1,1 @@
+{"name":"Local: Sundorban-10106","url":"d:\\Coding\\2025\\March\\March 2\\Sundorban-10106.cpp","tests":[{"id":1740911277623,"input":"5\n\nS P P P P\n\nT P T P P\n\nT P P P P\n\nP T E T T\n\nP T P T T","output":"5"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\Coding\\2025\\March\\March 2\\Sundorban-10106.cpp","group":"local","local":true}
