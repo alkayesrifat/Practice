@@ -1,0 +1,2 @@
+Values: 10 4 7 5 
+Weights: 4 3 2 5 
