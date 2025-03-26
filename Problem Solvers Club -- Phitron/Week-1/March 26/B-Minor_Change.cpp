@@ -2,7 +2,7 @@
  * All Praise to Allah
  * ---------------------
  * Author: Al Kayes Rifat
- * Created: 2025-03-26   12:16:53
+ * Created: 2025-03-26      12:16:53
  * ---------------------
  * Problem Link: https://atcoder.jp/contests/abc172/tasks/abc172_b?lang=en
  */
@@ -28,7 +28,7 @@ int main(){
             count ++;
         }
         
-        
+
     }
     cout << count;
 
