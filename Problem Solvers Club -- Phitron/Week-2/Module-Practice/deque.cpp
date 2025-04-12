@@ -20,6 +20,8 @@ int main(){
     dq.push_back(1);
     dq.push_front(5);
 
+    
+
 
     
     

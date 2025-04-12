@@ -1,5 +1,0 @@
-Distance to node 0 is 0
-Distance to node 1 is 6
-Distance to node 2 is 5
-Distance to node 3 is 4
-Distance to node 4 is 9
