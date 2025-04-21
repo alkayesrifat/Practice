@@ -2,7 +2,7 @@
  * All Praise to Allah
  * ---------------------
  * Author: Al Kayes Rifat
- * Created: 2025-04-20   19:39:56
+ * Created: 2025-04-21   12:22:20
  * ---------------------
  * Problem Link:
  */
@@ -21,18 +21,23 @@ int main()
 
     while (t--)
     {
-        long long int a, b, n, s;
-        cin >> a >> b >> n >> s;
+        int a, b, c;
+        cin >> a >> b >> c;
+        int aa = a - 1;
 
-        int koyta_a = min(s / n, a);
+        int tt = abs(b - c) + (c - 1);
 
-        if (koyta_a * n + b >= s)
+        if (aa < tt)
         {
-            cout << "YES" << endl;
+            cout << 1 << endl;
+        }
+        else if (tt < aa)
+        {
+            cout << 2 << endl;
         }
         else
         {
-            cout << "NO" << endl;
+            cout << 3 << endl;
         }
     }
 
