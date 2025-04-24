@@ -10,7 +10,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-void osama()
+void osama_bin_laden()
 {
 
     int n;
@@ -52,7 +52,7 @@ int main()
     cin >> t;
     while (t--)
     {
-        osama();
+        osama_bin_laden();
     }
 
     return 0;
