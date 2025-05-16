@@ -1,1 +1,0 @@
-{"name":"Local: Search_Query","url":"d:\\December Problem 2024\\12-11-2024\\Search_Query.cpp","tests":[{"id":1733997764005,"input":"5\n6 3 2 1 8\n4\n1\n5\n2\n9\n","output":"YES\nNO\nYES\nNO"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\December Problem 2024\\12-11-2024\\Search_Query.cpp","group":"local","local":true}
