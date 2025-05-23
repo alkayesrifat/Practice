@@ -19,51 +19,45 @@ int main()
     int n, m;
     cin >> n >> m;
 
-    vector<int> ticket(n), myprice(m);
+    vector<int> myprice(m);
+
+    multiset<int> ms;
 
     for (int i = 0; i < n; i++)
     {
-        cin >> ticket[i];
+        int val;
+        cin >> val;
+        ms.insert(val);
     }
     for (int i = 0; i < m; i++)
     {
         cin >> myprice[i];
     }
 
-    int i = 0, j = 0;
-
-    int maxx = INT_MIN;
-
     vector<int> ans;
 
-    while (i < m)
-    // while (j < n)
+    for (int i = 0; i < m; i++)
     {
-        if (ticket[j] <= myprice[i])
-        {
-            maxx = (maxx, ticket[j]);
-            j++;
-        }
-        else
-        {
-            if (maxx != INT_MIN)
-            {
-                ans.push_back(myprice[i]);
-            }
-            else
-            {
-                ans.push_back(-1);
-            }
+        auto it = ms.upper_bound(myprice[i]);
 
-            i++;
+        if (it == ms.begin()) {
+
+            ans.push_back(-1);
+
+        } else {
+
+            --it;
+
+            ans.push_back(*it);
+
+            ms.erase(it);
+            
         }
     }
 
-    reverse(ans.begin(), ans.end());
-
-    for (auto y : ans)
+    for (int x : ans)
     {
-        cout << y << endl;
+        cout << x << '\n';
     }
 
     return 0;
