@@ -59,7 +59,7 @@ int main()
             return sum >= h;
         };
 
-        ll l = 1, r = 1e18, ans, mid;
+        ll l = 1, r = 1e11, ans, mid;
 
         while (l <= r)
         {

@@ -38,37 +38,26 @@ int main()
 
         ll last = first + (n - 1);
 
-        auto ok = [&](ll mid)
-        {
-            for (ll i = first; i <= last; i++)
-            {
-                ll fi = rsum(first, i);
-                ll la = rsum(i, last);
-
-                ll subb = fi - la;
-
-                if (subb == mid)
-                {
-                    return true;
-                }
-            }
-            return false;
-        };
-
-        ll l = 1, r = 1e18, ans, mid;
+        ll l = first, r = last, ans = LLONG_MAX, mid;
 
         while (l <= r)
         {
             mid = l + (r - l) / 2;
 
-            if (ok(mid))
+            ll ls = rsum(first, mid);
+            ll rs = rsum(mid + 1, last);
+
+            ll difa = abs(rs - ls);
+
+            ans = min(ans, difa);
+
+            if (ls < rs)
             {
-                ans = mid;
-                r = mid - 1;
+                l = mid + 1;
             }
             else
             {
-                l = mid + 1;
+                r = mid - 1;
             }
         }
 
@@ -77,3 +66,4 @@ int main()
 
     return 0;
 }
+

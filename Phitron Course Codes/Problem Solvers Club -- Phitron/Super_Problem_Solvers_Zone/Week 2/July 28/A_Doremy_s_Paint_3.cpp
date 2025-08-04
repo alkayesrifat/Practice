@@ -3,8 +3,8 @@
  * ---------------------
  * Author: Al Kayes Rifat
  * Portfolio  : alkayesrifat.netlify.app
- * Date       : 22/07/2025 (Tuesday)
- * Time       : 15:24
+ * Date       : 28/07/2025 (Monday)
+ * Time       : 13:01
  * ---------------------
  */
 
@@ -15,7 +15,7 @@ using namespace std;
 #define endl "\n"
 
 int main()
-{ 
+{
 
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
@@ -24,36 +24,56 @@ int main()
     cin >> test_case;
     while (test_case--)
     {
-        int n, k;
-        cin >> n >> k;
+        int n;
+        cin >> n;
 
         vector<int> v(n);
+
         for (int i = 0; i < n; i++)
         {
             cin >> v[i];
         }
 
-        int cnt = 0;
-
-        for (int i = 0; i < n - 1; i++)
-        {
-            if (v[i] > v[i + 1])
-            {
-                cnt++;
-            }
-        }
-
-        if (cnt == 0)
+        if (n == 2)
         {
             cout << "YES" << endl;
         }
-        else
+        else if (n == 3)
         {
-            if (k <= 1)
+
+            if (v[0] == v[1] || v[0] == v[2] || v[1] == v[2])
+            {
+                cout << "YES" << endl;
+            }
+            else
             {
                 cout << "NO" << endl;
-                /* code */
             }
+        }
+
+        else
+        {
+
+            sort(v.begin(), v.end());
+            int f = 0;
+
+            for (int i = 0; i < n - 2; i++)
+            {
+                if (v[i] + v[i + 1] == v[i + 1] + v[i + 2])
+                {
+                }
+                else
+                {
+                    /* code */
+                    f = 1;
+                }
+            }
+
+            if (f == 1)
+            {
+                cout << "NO" << endl;
+            }
+
             else
             {
                 cout << "YES" << endl;
