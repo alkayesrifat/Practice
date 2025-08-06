@@ -34,6 +34,7 @@ int main()
         }
 
         map<int, int> cnt;
+        
         for (int i = 2; i * i <= n; i++)
         {
             while (n % i == 0)

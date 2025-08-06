@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>CodeChef Rating Checker</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #121212;
+      color: #eee;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 40px 20px;
+      min-height: 100vh;
+    }
+    h1 {
+      color: #ff914d;
+      margin-bottom: 25px;
+      text-shadow: 0 0 10px #ff914d88;
+    }
+    input, button {
+      font-size: 16px;
+      padding: 12px 15px;
+      margin: 8px 4px;
+      border-radius: 8px;
+      border: none;
+      outline: none;
+      transition: background-color 0.3s ease;
+    }
+    input {
+      width: 260px;
+      background: #222;
+      color: #eee;
+      box-shadow: inset 0 0 5px #333;
+    }
+    button {
+      background-color: #ff914d;
+      color: #121212;
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: 0 0 15px #ff914daa;
+    }
+    button:hover {
+      background-color: #ff7f1a;
+      box-shadow: 0 0 20px #ff7f1aaa;
+    }
+    #result {
+      margin-top: 30px;
+      background: #1f1f1f;
+      padding: 30px;
+      border-radius: 15px;
+      width: 350px;
+      box-shadow: 0 0 20px #ff914d44;
+      text-align: center;
+    }
+    #profile-pic {
+      border-radius: 50%;
+      width: 120px;
+      height: 120px;
+      object-fit: cover;
+      margin-bottom: 15px;
+      border: 3px solid #ff914d;
+      box-shadow: 0 0 15px #ff914d88;
+    }
+    .username {
+      font-size: 22px;
+      font-weight: 700;
+      margin-bottom: 6px;
+      color: #ffb366;
+    }
+    .fullname {
+      font-size: 18px;
+      font-weight: 500;
+      margin-bottom: 10px;
+      color: #ddd;
+    }
+    .institution {
+      font-style: italic;
+      color: #aaa;
+      margin-bottom: 20px;
+    }
+    .rating-row {
+      font-size: 18px;
+      margin: 6px 0;
+    }
+  </style>
+</head>
+<body>
+  <h1>CodeChef Rating Checker</h1>
+  <input type="text" id="username" placeholder="Enter CodeChef username" autocomplete="off" />
+  <button onclick="getRating()">Check Rating</button>
+
+  <div id="result"></div>
+
+  <script>
+    async function getRating() {
+      const username = document.getElementById("username").value.trim();
+      const result = document.getElementById("result");
+      result.innerHTML = "<p>Loading...</p>";
+
+      if (!username) {
+        result.innerHTML = "<p>Please enter a username.</p>";
+        return;
+      }
+
+      try {
+        const proxyUrl = "https://corsproxy.io/?";
+        const targetUrl = `https://www.codechef.com/users/${username}`;
+        const res = await fetch(proxyUrl + encodeURIComponent(targetUrl));
+        if (!res.ok) throw new Error("User not found or server error.");
+        const html = await res.text();
+
+        // Extract profile image URL
+        const imgMatch = html.match(/<img[^>]*class="user-image"[^>]*src="([^"]+)"/i);
+        const profilePic = imgMatch ? imgMatch[1] : "https://static.thenounproject.com/png/3636407-200.png";
+
+        // Extract full name (inside <h2> tag with class "h2-style" inside user-profile-header)
+        const nameMatch = html.match(/<h2[^>]*class="h2-style"[^>]*>([^<]+)<\/h2>/i);
+        const fullName = nameMatch ? nameMatch[1].trim() : "Name not found";
+
+        // Extract institution (inside <h6> tag with class "location" inside user-profile-header)
+        const institutionMatch = html.match(/<h6[^>]*class="location"[^>]*>([^<]+)<\/h6>/i);
+        const institution = institutionMatch ? institutionMatch[1].trim() : "Institution not available";
+
+        // Extract current rating
+        const ratingMatch = html.match(/<div class="rating-number">(\d+)<\/div>/);
+        // Extract max rating
+        const maxMatch = html.match(/Max\. Rating(?:<\/?[^>]*>)*\s*(\d+)/i);
+
+        if (ratingMatch) {
+          const rating = ratingMatch[1];
+          const maxRating = maxMatch ? maxMatch[1] : "N/A";
+
+          result.innerHTML = `
+            <img id="profile-pic" src="${profilePic}" alt="Profile Picture" />
+            <div class="username">@${username}</div>
+            <div class="fullname">${fullName}</div>
+            <div class="institution">${institution}</div>
+            <div class="rating-row"><strong>Current Rating:</strong> ${rating}</div>
+            <div class="rating-row"><strong>Max Rating:</strong> ${maxRating}</div>
+          `;
+        } else {
+          result.innerHTML = "<p>User not found or profile layout changed.</p>";
+        }
+      } catch (error) {
+        result.innerHTML = `<p>Failed to fetch. ${error.message}</p>`;
+      }
+    }
+  </script>
+</body>
+</html>
