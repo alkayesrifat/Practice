@@ -1,0 +1,3 @@
+date	size'/'remotesize	flags(request:Update,Range state:File response:Modified,Chunked,gZipped)	statuscode	status ('servermsg')	MIME	Etag|Date	URL	localfile	(from URL)
+21:53:18	14/-1	---M--	308	error ('Permanent%20Redirect')	text/plain		http://cst-club.org/robots.txt		(from )
+21:53:19	14/-1	---M--	308	error ('Permanent%20Redirect')	text/plain		http://cst-club.org/	E:/Practice-Codes/test/cst-club.org/index.html	(from )
