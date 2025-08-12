@@ -34,8 +34,8 @@ int main()
         }
         map<int, int> mp;
 
-        int suru = 1;
-        int ses = 8;
+        int suru = 0;
+        int ses = 9;
 
         for (int chole = 1; chole <= 5; chole++)
         {
@@ -72,34 +72,32 @@ int main()
                     mp[chole]++;
                 }
             }
+            if (arr[suru][suru] == 'X')
+            {
+                mp[chole]--;
+            }
+            if (arr[suru][ses] == 'X')
+            {
 
-            if (arr[suru - 1][suru - 1] == 'X')
-            {
-                mp[chole]++;
+                mp[chole]--;
             }
-            if (arr[suru - 1][ses + 1] == 'X')
+
+            if (arr[ses][ses] == 'X')
             {
-                mp[chole]++;
+                mp[chole]--;
             }
-            if (arr[ses + 1][suru - 1] == 'X')
+
+            if (arr[ses][suru] == 'X')
             {
-                mp[chole]++;
-            }
-            if (arr[ses + 1][ses + 1] == 'X')
-            {
-                mp[chole]++;
+                mp[chole]--;
             }
 
             suru++;
             ses--;
         }
-
-        // for (auto x : mp)
-        // {
-        //     cout << x.first << " -> " << x.second << endl;
-        // }
         ll ans = 0;
         for (auto x : mp)
+
         {
             ll crr = x.first * x.second;
             ans += crr;
