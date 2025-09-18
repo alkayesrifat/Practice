@@ -3,8 +3,8 @@
  * ---------------------
  * Author     : Al Kayes Rifat
  * Portfolio  : alkayesrifat.netlify.app
- * Date       : 04/09/2025 (Thursday)
- * Time       : 11:32 
+ * Date       : 11/09/2025 (Thursday)
+ * Time       : 03:51 
  * ---------------------
  */
 
@@ -30,36 +30,22 @@ int main(){
         int n ;
         cin >> n ;
 
-        vector<int>v(n);
+        string s;
+        cin >> s;
 
-        for (int i = 0; i < n; i++)
-        {
-            cin >> v[i];
-        }
+        string r  = s;
 
-        int maxx = 0 ;
+        sort(r.begin(),r.end());
 
-        int cnt = 0;
-        for (int i = 0; i < n; i++)
-        {
-            if (v[i] == 1)
-            {
-                maxx = max(maxx,cnt);
-                cnt = 0;
-                /* code */
-            }
-            else
-            {
+        int cnt = 0 ;
+
+        for(int i = 0 ; i < n ; i++){
+            if(s[i] != r[i]){
                 cnt++;
-                maxx = max(maxx,cnt);
             }
-            
-            
-            /* code */
         }
-        
-        
-        cout << maxx << endl;
+
+        cout << cnt / 2<< endl;
 
     }
 
